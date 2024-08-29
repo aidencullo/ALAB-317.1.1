@@ -84,8 +84,13 @@ class NCycle<T> {
     stop() {
 	this.status = "stopped";
     }
-    print(parameter?: number) {}
-}
+    print(parameter?: number) {
+	if (!Array.isArray(this.make) && !Array.isArray(this.model)) {
+	    console.log(`This is a ${this.make} ${this.model} NCycle.`);
+	}
 
-const myGenericCycle = new NCycle<string>("Generic", "Cycle", 2);
-myGenericCycle.print(1);
+	   }
+    }
+
+    const myGenericCycle = new NCycle<string>("Generic", "Cycle", 2);
+    myGenericCycle.print(1);
