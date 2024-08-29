@@ -84,6 +84,8 @@ class NCycle<T> {
     stop() {
 	this.status = "stopped";
     }
+    print(parameter?: number) {}
 }
 
 const myGenericCycle = new NCycle<string>("Generic", "Cycle", 2);
+myGenericCycle.print(1);
