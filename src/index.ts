@@ -83,7 +83,17 @@ class NCycle<T> {
 	    console.log("This NCycle was not created properly.");
 	}
     }
-    printAll() {}
+    printAll() {
+	if (!Array.isArray(this.make) && !Array.isArray(this.model)) {
+	    console.log(`This is a ${this.make} ${this.model} NCycle.`);
+	} else if(Array.isArray(this.make) && Array.isArray(this.model)) {
+	    for (let i = 0; i < Math.min(this.make.length, this.model.length); i++) {
+		console.log(`This NCycle has a ${this.make[i]} ${this.model[i]} at ${i}.`);
+	    }
+	} else {
+	    console.log("This NCycle was not created properly.");
+	}
+    }
 }
 
 const myNCycle = new NCycle("Giant", "Talon", 2);
@@ -92,5 +102,3 @@ const myNCycle2 = new NCycle(["Giant", "Trek"], ["Talon", "Marlin"], 2);
 myNCycle2.print(1);
 myNCycle2.print(2);
 myNCycle2.print(3);
-
-
