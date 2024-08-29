@@ -87,10 +87,17 @@ class NCycle<T> {
     print(parameter?: number) {
 	if (!Array.isArray(this.make) && !Array.isArray(this.model)) {
 	    console.log(`This is a ${this.make} ${this.model} NCycle.`);
+	} else if (Array.isArray(this.make) && Array.isArray(this.model) && this.make[parameter] && this.model[parameter]) {
+	    console.log(`This NCycle has a ${this.make[parameter]} ${this.model[parameter]} at ${parameter}.`);
+	} else {
+	    console.log("This NCycle was not created properly.");
 	}
-
-	   }
     }
+}
 
-    const myGenericCycle = new NCycle<string>("Generic", "Cycle", 2);
-    myGenericCycle.print(1);
+const myNCycle = new NCycle("Giant", "Talon", 2);
+myNCycle.print();
+const myNCycle2 = new NCycle(["Giant", "Trek"], ["Talon", "Marlin"], 2);
+myNCycle2.print(1);
+myNCycle2.print(2);
+myNCycle2.print(3);
