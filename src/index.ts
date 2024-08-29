@@ -87,7 +87,7 @@ class NCycle<T> {
     print(parameter?: number) {
 	if (!Array.isArray(this.make) && !Array.isArray(this.model)) {
 	    console.log(`This is a ${this.make} ${this.model} NCycle.`);
-	} else if (Array.isArray(this.make) && Array.isArray(this.model) && this.make[parameter] && this.model[parameter]) {
+	} else if (Array.isArray(this.make) && Array.isArray(this.model) && parameter && parameter > 0 && parameter <= this.make.length && parameter <= this.model.length) {
 	    console.log(`This NCycle has a ${this.make[parameter]} ${this.model[parameter]} at ${parameter}.`);
 	} else {
 	    console.log("This NCycle was not created properly.");
