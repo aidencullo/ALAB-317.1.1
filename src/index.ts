@@ -50,3 +50,38 @@ const myBuick = new Car("Buick", "Regal");
 myBuick.wheels = myBuick.wheels - 1;
 console.log(myBuick.wheels);
 console.log(myBuick.model);
+
+
+
+// Part 3: Creating a Generic Class
+// Create a new class following the existing code, called NCycle.
+// Copy the existing Vehicle class definition as a starting point for NCycle.
+// Modify NCycle to accept a generic type.
+// Allow make and model to have either the generic type or an array of the generic type.
+// Adjust the constructor parameters accordingly.
+// Create a new method print, which returns nothing and has a single number parameter (either optional or defaulted to 0).
+// Use type guards and other appropriate techniques to implement print such that it logs:
+// "This is a <make> <model> NCycle." if make and model are not arrays.
+// "This NCycle has a <make> <model> at <parameter>." if make and model are arrays and the index of parameter exists in each.
+// "This NCycle was not created properly." if neither of the above are true.
+// Create a new method printAll, which returns nothing and has no parameters.
+// Use type guards and appropriate techniques to implement printAll such that it logs the same statements as print, but for all matching pairs in the make and model arrays, if applicable.
+
+class NCycle<T> {
+    status: StatusUnion = "stopped";
+    make: string;
+    model: string;
+    wheels: number;
+
+    constructor(make: string, model: string, wheels: number) {
+	this.make = make;
+	this.model = model;
+	this.wheels = wheels;
+    }
+    start() {
+	this.status = "started";
+    }
+    stop() {
+	this.status = "stopped";
+    }
+}
