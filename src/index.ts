@@ -69,11 +69,11 @@ console.log(myBuick.model);
 
 class NCycle<T> {
     status: StatusUnion = "stopped";
-    make: string;
-    model: string;
+    make: T | T[];
+    model: T | T[];
     wheels: number;
 
-    constructor(make: string, model: string, wheels: number) {
+    constructor(make: T | T[], model: T | T[], wheels: number) {
 	this.make = make;
 	this.model = model;
 	this.wheels = wheels;
@@ -85,3 +85,5 @@ class NCycle<T> {
 	this.status = "stopped";
     }
 }
+
+const myGenericCycle = new NCycle<string>("Generic", "Cycle", 2);
