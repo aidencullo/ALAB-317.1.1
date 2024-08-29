@@ -13,5 +13,6 @@
     ],
     "rootDir": "src",
     "moduleResolution": "node"
-  }
+  },
+  "exclude": ["dist", "node_modules"]
 }
